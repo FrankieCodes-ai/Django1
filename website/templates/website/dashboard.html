@@ -4,14 +4,13 @@
 
     <h1> Welcome to the Dashboard {{user}}</h1>
 
-    <a class="btn btn-outline-primary btn-sm" href="{% url 'Dashboard' %}">
-    {% for record in records %}
-        {{record.id}}
-        {{record.first_name}}
-        {{record.last_name}}
-    {% endfor %}
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-record' %}"> create record </a>
 
-    <table class-"table-dark table-hover table-bordered">
+    <br>
+
+    <hr>
+
+    <table class="table table-dark table-hover table-bordered">
 
         <thead class="table-primary">
             <tr>

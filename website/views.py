@@ -4,6 +4,7 @@ from django.contrib.auth.models import auth
 from django.contrib.auth import  authenticate
 from django.contrib.auth.decorators import login_required
 from .models import Record
+from .forms import CreateUserForm, LoginForm, createRecordForm
 
 # Dashboard
 @login_required(login_url='my-login')
@@ -47,18 +48,17 @@ def my_login(request):
     context = {'login_form':form}
     return render(request,'website/my-login.html', context=context)
 
-def register(request):
-    form = CreateUserForm()
+def create_record(request):
+    form = createRecordForm()
 
     if request.method == "POST":
-        form = CreateUserForm(request.POST)
+        form = createRecordForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('my-login')
+            return redirect('dashboard')
         
-    context = {'form':form}
-
-    return render(request,'website/register.html', context=context)
+    context = {'create_form':form}
+    return render(request,'website/create-record.html', context=context)
 def user_logout(request):
 
     auth.logout(request)
