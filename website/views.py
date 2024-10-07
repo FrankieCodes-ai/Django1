@@ -3,11 +3,15 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import auth
 from django.contrib.auth import  authenticate
 from django.contrib.auth.decorators import login_required
+from .models import Record
 
 # Dashboard
 @login_required(login_url='my-login')
 def dashboard(request):
-    return render(request, 'website/dashboard.html')
+    my_records = Record.objects.all()
+    context = {'records' : my_records}
+
+    return render(request, 'website/dashboard.html', context=context)
 
 
 def home(request):
