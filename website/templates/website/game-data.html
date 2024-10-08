@@ -1,0 +1,29 @@
+{% extends 'website/base.html' %}
+{% block content %}
+   <br>
+   <h5> Welcome to the game data demo page </h5>
+   <hr>
+
+   <table class="table table-dark table-hober table-bordered">
+    <thead class="table primary">
+        <tr>
+            <th scope="col"> ID </th>
+            <th scope="col"> Name </th>
+            <th scope="col"> Stars </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% if data%}
+            {% for row in data%}
+            <tr>
+                <td> {{row.id}} </td>
+                <td> {{row.charachter_name}} </td>
+                <td> {{row.stars}} </td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+    
+{% endblock %}

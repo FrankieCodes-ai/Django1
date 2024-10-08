@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import auth
 from django.contrib.auth import  authenticate
 from django.contrib.auth.decorators import login_required
-from .models import Record
+from .models import Record , Gamedata
 from .forms import CreateUserForm, LoginForm, createRecordForm, UpdateRecordForm
 from django.contrib import messages
 
@@ -96,3 +96,11 @@ def singular_record(request, pk):
 def games(request):
     return render(request, 'website/games.html')
 
+
+@login_required(login_url='my-login')
+def game_date(request):
+
+    data = Gamedata.objects.all()
+    context = {'data':data}
+
+    return render(request, 'website/game-data.html', context=context)

@@ -1,5 +1,10 @@
 from django.db import models
 
+
+class Gamedata(models.Model):
+    character_name = models.CharField(max_length = 100)
+    stars = models.IntegerField() 
+
 class Record(models.Model):
 
     creation_data = models.DateTimeField(auto_now_add = True)
