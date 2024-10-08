@@ -1,0 +1,39 @@
+{% extends 'website/base.html' %}
+
+{% block content %}
+
+
+    <div class="card">
+        <strong>
+            <br>
+            &nbsp; &nbsp;
+            {{record.lastname|upper}}
+            {{record.first_name}}
+        </strong>
+        <hr>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="image you cant see cos your blind">
+            <div class="card-body">
+              <h5 class="card-title">GOOD CARD</h5>
+              <p> <strong> ID: </strong> {{record.id}} </p>
+            <p> <strong> Email: </strong> {{record.email}} </p>
+            <p> <strong> Phone Number: </strong> {{record.phone}} </p>
+            <p> <strong> Address: </strong> {{record.address}} </p>
+            <p> <strong> City: </strong> {{record.city}} </p>
+            <p> <strong> Creation Date: </strong> {{record.creation_data}} </p>
+            </div>
+          </div>
+
+        <div class="card-body">
+            
+
+        </div>
+    </div>
+    <br>
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary"> Return to Dashboard </a>
+    &nbsp;
+    <a href="{% url 'update-record' record.id %}" class=btn btn-info> Update Record </a>
+    &nbsp;
+    <a href="{% url '' %}"class="btn btn-danger"> Delete </a>
+
+{% endblock %}

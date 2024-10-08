@@ -12,7 +12,7 @@ class createRecordForm(forms.ModelForm):
 
 class UpdateRecordForm(forms.ModelForm):
     class Meta:
-        model - Record
+        model = Record
         fields = ['first_name', 'last_name','email','phone','address','city']
 
 
